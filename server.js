@@ -7,7 +7,7 @@ import morgan from 'morgan';
 import { notFound, serverError } from './middlewares/errorMiddleware.js';
 
 // import controllers
-import { signUp } from './controllers/userController.js'
+import { signUp, signIn } from './controllers/userController.js'
 
 const app = express();
 
@@ -22,7 +22,9 @@ app.get('/', (request, response) =>{
     response.send('<h4>Server is awaiting your command</h4>')
 })
 
-app.post('/signup', signUp)
+app.post('/signup', signUp);
+
+app.post('/signin', signIn);
 
 // run error middlewares at the bottom of the file
 app.use(notFound);

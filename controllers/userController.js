@@ -11,6 +11,7 @@ import {
 import asyncHandler from 'express-async-handler';
 import fs from 'fs';
 import { v4 as uuidv4 } from 'uuid';
+import { generateToken } from '../utils/tokenization.js'
 
 // POST /signup
 // must have body of username,fname,lname,password
@@ -92,6 +93,51 @@ const signUp = asyncHandler(
     }
 )
 
+// POST /signin
+// must have JSON body of username and password
+// public route
+
+const signIn = asyncHandler(
+    async (request, response) =>{
+        const {
+            username,
+            password
+        } = request.body;
+
+        if(!request.body.username || !request.body.password){
+            response.status(400);
+            response.json({
+                result: false,
+                error: "Please provide username and password"
+            });
+            return;
+        }
+
+        // first check if the username already exists
+        const isUserExist = Users.find( user => user.username === username )
+
+        if(
+            isUserExist && await validateHashPassword(password, isUserExist.password)
+        ){
+            const token = generateToken(username, isUserExist.fname);
+
+            response.status(200);
+            response.json({
+                result: true,
+                jwt: token,
+                message: 'Signin success'
+            })
+        }else{
+            response.status(400);
+            response.json({
+                result: false,
+                error: 'Invalid username/password'
+            })
+        }
+    }
+)
+
 export {
-    signUp
+    signUp,
+    signIn
 }

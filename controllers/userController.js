@@ -25,6 +25,37 @@ const signUp = asyncHandler(
             lname
         } = request.body;
 
+        // check if body is empty
+        if(
+            !request.body.username &&
+            !request.body.password &&
+            !request.body.fname    &&
+            !request.body.lname
+        ){
+            response.status(400);
+            response.json({
+                result: false,
+                error: "fields can't be empty"
+            });
+            return;
+        }
+
+
+        // check if one or more fields exist
+        if(
+            !request.body.username ||
+            !request.body.password ||
+            !request.body.fname    ||
+            !request.body.lname
+        ){
+            response.status(400);
+            response.json({
+                result: false,
+                error: "fields can't be empty"
+            });
+            return;
+        }
+
         // first check if the username already exists
         const isUserExist = Users.find( user => user.username === username )
 
@@ -49,7 +80,7 @@ const signUp = asyncHandler(
             response.status(400);
             response.json({
                 result: false,
-                error: "fname check failed"
+                error: "fname or lname check failed"
             })
         }
 
@@ -57,7 +88,7 @@ const signUp = asyncHandler(
             response.status(400);
             response.json({
                 result: false,
-                error: "lname check failed"
+                error: "fname or lname check failed"
             })
         }
 

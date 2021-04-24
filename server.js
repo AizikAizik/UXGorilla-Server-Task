@@ -6,9 +6,6 @@ import morgan from 'morgan';
 // import custom error middlewares
 import { notFound, serverError } from './middlewares/errorMiddleware.js';
 
-// import custom db from file system 
-import { Users } from './database/db.js';
-
 // import controllers
 import { signUp } from './controllers/userController.js'
 
@@ -31,7 +28,6 @@ app.post('/signup', signUp)
 app.use(notFound);
 app.use(serverError);
 
-console.log(Users);
 
 const PORT = process.env.PORT || 8000;
 

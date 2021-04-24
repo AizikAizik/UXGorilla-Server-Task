@@ -1,16 +1,16 @@
 [
     {
-        "id": "6c6f2842-91c4-4dfa-a36d-f86865a69812",
-        "username": "aizik",
-        "password": "$2a$14$t7OlgfElMl06Gc5yv.9K0OqmCZFe/D/9Pp1L0AUJRoqGGo3HGLU/C",
-        "fname": "Isaac",
-        "lname": "Ogunleye"
+        "id": "d9a755f6-25f9-4a57-8b68-e83110b92cc7",
+        "username": "esther",
+        "password": "$2a$14$j4mw884JR2wieClfllIK9OZWCYl3nQ/iX0cfIA8SwRJak23MNteSW",
+        "fname": "Esther",
+        "lname": "Rohini"
     },
     {
-        "id": "a88d37e0-5225-47e6-b1de-8e537707dd5e",
-        "username": "dave",
-        "password": "$2a$14$y2KQqZQt03uGM473pnG5wu755cikOIV9PQ.eTpBM7C3BZfkbVjaku",
-        "fname": "David",
+        "id": "256ede07-6009-412d-b15a-7ff6027947bb",
+        "username": "aizik",
+        "password": "$2a$14$KQfpeK5LQf.Kh40Be1jIeubwZEY.0Z6phIMiwbGuunEvDVTelJn.6",
+        "fname": "Isaac",
         "lname": "Ogunleye"
     }
 ]

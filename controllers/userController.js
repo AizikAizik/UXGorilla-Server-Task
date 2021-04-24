@@ -16,7 +16,7 @@ import { v4 as uuidv4 } from 'uuid';
 // must have body of username,fname,lname,password
 // public route
 const signUp = asyncHandler(
-    async (request, response) =>{
+    async (request, response) => {
         const {
             username,
             password,
@@ -24,12 +24,50 @@ const signUp = asyncHandler(
             lname
         } = request.body;
 
-        if(
-            validateName(fname) && 
-            validateName(lname) &&
-            validatePassword(password) &&
-            validateUsername(username)
-        ){
+        // first check if the username already exists
+        const isUserExist = Users.find( user => user.username === username )
+
+        if(isUserExist){
+            response.status(400);
+            response.json({
+                result: false,
+                error: "username already exists"
+            })
+            return;
+        }
+
+        if (!validateUsername(username)) {
+            response.status(400);
+            response.json({
+                result: false,
+                error: "username check failed"
+            })
+        }
+
+        else if (!validateName(fname)) {
+            response.status(400);
+            response.json({
+                result: false,
+                error: "fname check failed"
+            })
+        }
+
+        else if (!validateName(lname)) {
+            response.status(400);
+            response.json({
+                result: false,
+                error: "lname check failed"
+            })
+        }
+
+        else if (!validatePassword(password)) {
+            response.status(400);
+            response.json({
+                result: false,
+                error: "password check failed"
+            })
+        }
+        else {
             let hash = await hashPassword(password);
             const newData = Users.push({
                 id: uuidv4(),
@@ -41,18 +79,16 @@ const signUp = asyncHandler(
 
             let data = JSON.stringify(Users, null, 4);
 
-            fs.writeFileSync('./database/users.json',data, {encoding: 'utf-8'});
+            fs.writeFileSync('./database/users.json', data, { encoding: 'utf-8' });
 
             response.status(200);
 
             response.json({
-                result : true,
+                result: true,
                 message: "SignUp success. Please proceed to Signin"
             })
-        }else{
-            response.status(400);
-            throw new Error("Invalid username or password or fname or lname");
         }
+
     }
 )
 

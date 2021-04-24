@@ -1,1 +1,16 @@
-[]
+[
+    {
+        "id": "6c6f2842-91c4-4dfa-a36d-f86865a69812",
+        "username": "aizik",
+        "password": "$2a$14$t7OlgfElMl06Gc5yv.9K0OqmCZFe/D/9Pp1L0AUJRoqGGo3HGLU/C",
+        "fname": "Isaac",
+        "lname": "Ogunleye"
+    },
+    {
+        "id": "a88d37e0-5225-47e6-b1de-8e537707dd5e",
+        "username": "dave",
+        "password": "$2a$14$y2KQqZQt03uGM473pnG5wu755cikOIV9PQ.eTpBM7C3BZfkbVjaku",
+        "fname": "David",
+        "lname": "Ogunleye"
+    }
+]

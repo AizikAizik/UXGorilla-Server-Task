@@ -6,7 +6,11 @@ import morgan from 'morgan';
 // import custom error middlewares
 import { notFound, serverError } from './middlewares/errorMiddleware.js';
 
-import { Users } from './database/db.js'
+// import custom db from file system 
+import { Users } from './database/db.js';
+
+// import controllers
+import { signUp } from './controllers/userController.js'
 
 const app = express();
 
@@ -20,6 +24,8 @@ app.use(cors());
 app.get('/', (request, response) =>{
     response.send('<h4>Server is awaiting your command</h4>')
 })
+
+app.post('/signup', signUp)
 
 // run error middlewares at the bottom of the file
 app.use(notFound);

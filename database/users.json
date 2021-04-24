@@ -12,5 +12,26 @@
         "password": "$2a$14$KQfpeK5LQf.Kh40Be1jIeubwZEY.0Z6phIMiwbGuunEvDVTelJn.6",
         "fname": "Isaac",
         "lname": "Ogunleye"
+    },
+    {
+        "id": "95d8c6ca-81a2-40e7-9f97-7785aee0acd4",
+        "username": "breezy",
+        "password": "$2a$14$T0JgJWFZyzHNHV/ouo7FmOfO/agB4UYU9QKGouTjazVpmGGNrtcWG",
+        "fname": "David",
+        "lname": "Anderson"
+    },
+    {
+        "id": "770a5518-8130-45da-8da3-2311be4518ec",
+        "username": "test",
+        "password": "$2a$14$fjDDTbuyLIWHNmfj5YukBOEeWsQApYqWo79iyW3Ua7TQkBUDr3LF2",
+        "fname": "somename",
+        "lname": "somename"
+    },
+    {
+        "id": "32a796a6-a71d-4b4f-bc90-23867d7a9893",
+        "username": "faith",
+        "password": "$2a$14$qdG.KX6Iq0ka6M0ISlL9tOh9z5IQl1olWNQT.VvXRut7Ha8IYVQbe",
+        "fname": "Faith",
+        "lname": "Ogunleye"
     }
 ]

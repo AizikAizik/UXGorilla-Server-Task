@@ -35,8 +35,7 @@ function validateName(name){
 
     schema
         .is().letters()
-        .has().lowercase()
-        .has().uppercase()
+        .has(/^[a-zA-Z]+$/)
         .has().not().digits()
         .has().not(/[~`!@#$%^&()_={}[\]:;,.<>+\/?-]/)
         .has().not().spaces();

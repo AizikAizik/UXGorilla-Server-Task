@@ -159,7 +159,7 @@ const signIn = asyncHandler(
                 message: 'Signin success'
             })
         }else{
-            response.status(400);
+            response.status(401);
             response.json({
                 result: false,
                 error: 'Invalid username/password'
@@ -168,7 +168,29 @@ const signIn = asyncHandler(
     }
 )
 
+const getProfile = asyncHandler(
+    async (request,response) =>{
+        const user = Users.find(user => user.username === request.user.username);
+
+        if(user){
+            response.status(200);
+            response.json({
+                result: true,
+                data:{
+                    fname: user.fname,
+                    lname: user.lname,
+                    password: user.password
+                }
+            })
+        }else{
+            response.status(404);
+            throw new Error('user doesnt exist');
+        }
+    }
+)
+
 export {
     signUp,
-    signIn
+    signIn,
+    getProfile
 }
